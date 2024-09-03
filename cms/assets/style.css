@@ -69,7 +69,6 @@ html, body {
     position: absolute;
     top: 100%;
     right: 0;
-    display: none;
     background-color: var(--secondary-color);
     list-style: none;
     margin-top: 0;
