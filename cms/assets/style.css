@@ -41,6 +41,12 @@ html, body {
     object-fit: cover;
 }
 
+.profile-icon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--secondary-color);
+}
+
 .profile-icon::after {
     content: "";
     position: absolute;
