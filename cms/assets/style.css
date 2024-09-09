@@ -31,7 +31,6 @@ html, body {
     width: 36px;
     height: 36px;
     padding: 2px;
-    margin-right: 35px;
     cursor: pointer;
 }
 
@@ -46,17 +45,23 @@ html, body {
     height: 32px;
     color: var(--secondary-color);
 }
-
-.profile-icon::after {
+.js-drop { 
+    position: relative; 
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 35px;
+}
+.js-drop::after {
     content: "";
     position: absolute;
     top: 50%;
     left: 100%;
     transform: translate(0, -50%);
     display: inline-block;
-    border-top: 16px solid var(--grey-color);
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
+    border-top: 12px solid var(--grey-color);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
     border-bottom: 0;
     width: 0;
     height: 0;
