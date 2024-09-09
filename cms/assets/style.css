@@ -170,3 +170,31 @@ html, body {
     display: inline-block;
     vertical-align: middle;
 }
+
+.card {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    border-bottom: 6px solid var(--white-color);
+    box-shadow: 0 0 22px 0 rgba(0, 0, 0, 0.22);
+    max-width: 280px;
+    color: var(--white-color);
+    padding: 1rem;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0 0 15px;
+    padding-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.card-meta span,
+.card-meta strong {
+    font-size: 1rem;
+}
+
+.card-meta span {
+    display: block
+}
