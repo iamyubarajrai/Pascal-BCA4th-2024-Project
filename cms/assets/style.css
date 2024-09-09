@@ -80,21 +80,15 @@ html, body {
     position: absolute;
     top: 100%;
     right: 0;
-    /* display: none; */
-    max-height: 0;
-    overflow: hidden;
 
     background-color: var(--secondary-color);
     list-style: none;
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 0;
-    transition: 0.5s;
 }
-.profile-box.expand .profile-list { 
-    /* display: block;  */
-    max-height: 300px;
-}
+.drop-wrapper .dropdown { display: none; }
+.drop-wrapper.expand .dropdown { display: block; }
 
 .profile-list a {
     display: block;
