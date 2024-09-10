@@ -198,3 +198,57 @@ html, body {
 .card-meta span {
     display: block
 }
+
+/* Form CSS*/
+.page-title {
+    font-size: 24px;
+}
+.form-box form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.form-box .main,
+.form-box .aside {
+    border: 1px solid var(--grey-color);
+    border-radius: 8px;
+    padding: 20px;
+}
+.form-box .aside {
+    background-color: rgba(0, 0, 0, 0.02);
+    width: 300px;
+}
+.form-box .main {
+    width: calc(100% - 330px);
+}
+.form-box * { margin: 0; }
+.form-box h4 {
+    margin-bottom: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+}
+.form-box label {
+    display: block;
+    margin-bottom: 2px;
+    line-height: 1;
+    font-size: 14px;
+    font-weight: 600;
+}
+.form-box .field-group,
+.form-box .subfield-group {
+    margin-bottom: 10px;
+}
+.form-box .field-group {
+    border: 1px solid var(--grey-color);
+    padding: 8px;
+}
+.form-box input,
+.form-box textarea,
+.form-box select {
+    border: 1px solid var(--grey-color);
+    border-radius: 4px;
+    width: 100%;
+    height: 36px;
+}
+.form-box textarea { min-height: 100px; }
