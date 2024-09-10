@@ -239,7 +239,8 @@ html, body {
 .form-box .subfield-group {
     margin-bottom: 10px;
 }
-.form-box .field-group {
+.form-box .field-group,
+.form-box .status-box {
     border: 1px solid var(--grey-color);
     padding: 8px;
 }
@@ -252,3 +253,10 @@ html, body {
     height: 36px;
 }
 .form-box textarea { min-height: 100px; }
+.form-box .status-box {
+    margin-bottom: 20px;
+}
+.form-box .status-box span,
+.form-box .status-box strong {
+    font-size: 14px;
+}
