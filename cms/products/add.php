@@ -62,4 +62,6 @@
             </form>
         </div>
     </main>
+    <script src="../assets/richtext.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/7c8a796694.js" crossorigin="anonymous"></script>
 <?php include "../footer.php"; ?>
