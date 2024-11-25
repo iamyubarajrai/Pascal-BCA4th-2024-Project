@@ -1,5 +1,5 @@
 <?php
-$project_root = "http://localhost:80/pascalproject/"; 
+$project_root = "http://localhost:80/pascalpro"; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
