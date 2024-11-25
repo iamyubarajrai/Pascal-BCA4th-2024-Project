@@ -1,0 +1,77 @@
+Database: db_pascalpro (Collation: utf8mb4_general_ci)
+Tables: 
+- tbl_users (Admin/Vendor table)
+- tbl_products
+- tbl_categories
+- tbl_customers
+- tbl_pages
+- tbl_cart
+- To maintain cart-product's M:N relation
+    - we require: tbl_cart_details (as a Pivote table)
+
+===============================
++3:
+    - created_at
+    - updated_at
+    - status
+
++5:
+    - created_by (user's existing ID who is creating product)
+    - created_at
+    - updated_by (user's existing ID who is creating product)
+    - updated_at
+    - status
+
+tbl_users:
+    - id
+    - fullname
+    - phone
+    - username/email (*use: email)
+    - address
+    - password
+    - dob
+    - +3
+
+    Physical Design:
+        CREATE TABLE tbl_users(
+            id INT AUTO_INCREMENT NOT NULL,
+            fullname VARCHAR(30) NOT NULL,
+            phone VARCHAR(20) NULL,
+            email VARCHAR(50) UNIQUE NOT NULL,
+            address VARCHAR(100) NULL,
+            password VARCHAR(200) NOT NULL,
+            dob DATETIME NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+            updated_at TIMESTAMP NULL,
+            status BOOLEAN NULL,
+            PRIMARY KEY(id)
+        );
+
+        Hashing algorithm: md5(), sha1(), bcrypt() etc.
+    
+tbl_products: (Relation with tbl_users and tbl_categories)
+    - id
+    - title
+    - slug
+    - detail
+    - excerpt
+    - image
+    - cat_id
+    - +5
+
+    Physical Schema:
+    CREATE TABLE tbl_products(
+        id INT AUTO_INCREMENT NOT NULL,
+        title VARCHAR(60) NOT NULL,
+        slug VARCHAR(30) NOT NULL,
+        detail TEXT NULL,
+        excerpt VARCHAR(250) NULL,
+        image VARCHAR(100) NULL,
+        created_by INT NOT NULL, 
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+        updated_by INT NULL,
+        updated_at TIMESTAMP NULL,
+        status BOOLEAN NULL,
+        PRIMARY KEY(id),
+        FOREIGN KEY (created_by) REFERENCES tbl_users(id)
+    );

@@ -30,5 +30,4 @@ if(isset($_POST['submit'])) {
     } else {
         echo "File size error";
     }
-
 }
