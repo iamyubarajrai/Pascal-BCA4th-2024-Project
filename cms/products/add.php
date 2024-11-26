@@ -2,7 +2,7 @@
     <main id="main">
         <div class="form-box">
             <h1 class="page-title">Add Product</h1>
-            <form action="create.php" method="POST" name="add" enctype="multipart/form-data">
+            <form action="create.php" class="flex-row" method="POST" name="add" enctype="multipart/form-data">
                 <div class="main">
                     <div class="field-group">
                         <label for="title">Title</label>

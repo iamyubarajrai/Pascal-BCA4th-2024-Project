@@ -68,10 +68,14 @@ tbl_products: (Relation with tbl_users and tbl_categories)
         excerpt VARCHAR(250) NULL,
         image VARCHAR(100) NULL,
         created_by INT NOT NULL, 
+        cat_id INT NOT NULL, 
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
         updated_by INT NULL,
         updated_at TIMESTAMP NULL,
         status BOOLEAN NULL,
         PRIMARY KEY(id),
-        FOREIGN KEY (created_by) REFERENCES tbl_users(id)
+        FOREIGN KEY (created_by) REFERENCES tbl_users(id),
+        FOREIGN KEY (cat_id) REFERENCES tbl_categories(id)
     );
+
+    //ALTER TABLE ADD FOREIGN KEY()

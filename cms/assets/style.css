@@ -203,7 +203,8 @@ html, body {
 .page-title {
     font-size: 24px;
 }
-.form-box form {
+
+.flex-row {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -260,3 +261,11 @@ html, body {
 .form-box .status-box strong {
     font-size: 14px;
 }
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.container--small { max-width: 480px; }
