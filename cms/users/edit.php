@@ -9,7 +9,7 @@
 <body>
     <div class="form-box container container--small">
         <h1 class="form-box__title">Update User</h1>
-        <form action="./create.php" method="POST" name="usermgmt">
+        <form action="./update.php" method="POST" name="usermgmt">
             <div class="field-group">
                 <label for="fname">Full Name</label>
                 <input type="text" name="fname" id="fname" value="">
