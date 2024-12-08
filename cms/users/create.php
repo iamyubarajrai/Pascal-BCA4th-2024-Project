@@ -10,7 +10,7 @@ if(isset($_POST['submit'])) {
 
     if($pwd == $cpwd) {
         $pwdHash = sha1($pwd); //Hashing algorithms: MD5(), SHA1(), BCrypt() etc
-        $query = "INSERT INTO tbl_users (fullname, phone, email, address, password) VALUES('$fname', '$phone', '$email', '$addr', '$pwdHash')"; //SQL Statement 
+        $query = "INSERT INTO users (fullname, phone, email, address, password) VALUES('$fname', '$phone', '$email', '$addr', '$pwdHash')"; //SQL Statement 
         include "../connection.php";
         $res = mysqli_query($conn, $query);
 

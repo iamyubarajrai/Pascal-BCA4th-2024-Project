@@ -20,7 +20,7 @@
             </div>
             <div class="field-group">
                 <label for="email">E-Mail</label>
-                <input type="text" name="email" id="email" value="">
+                <input type="email" name="email" id="email" value="">
             </div>
             <div class="field-group">
                 <label for="pwd">Password</label>
