@@ -1,7 +1,9 @@
 <?php session_start();
 include "../connection.php";
-$sql = "SELECT id, fullname, email FROM users";
+$sql = "SELECT id, fullname, email FROM users limit 1";
 $res = mysqli_query($conn, $sql);
+// $ids = [];
+$_SESSION['ids'] = [];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +11,7 @@ $res = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Users | User Management</title>
+    <script src="../assets/jquery.min.js"></script>
 </head>
 <body>
     <div class="data-box">
@@ -25,7 +28,9 @@ $res = mysqli_query($conn, $sql);
             </thead>
             <tbody>
                 <?php while($row = mysqli_fetch_assoc($res)): 
-                    //print_r($row);?>
+                    //print_r($row);
+                    array_push($_SESSION['ids'], $row['id']);
+                    ?>
                 <tr>
                     <td>1</td>
                     <td><?php echo $row['fullname']; ?></td>
@@ -38,7 +43,28 @@ $res = mysqli_query($conn, $sql);
                 <?php endwhile; ?>
             </tbody>
         </table>
+        <a href="#" title="Load More" class="js-load">Load More</a>
     </div>
+
+    <script type="text/javascript">
+        let jsLoad = jQuery(".js-load"),
+            appBox = jQuery(".data-box tbody");
+        jsLoad.on("click", (e) => {
+            e.preventDefault(); //preventing page reload/refresh
+            $.ajax({
+                url: "./ajax.php",
+                method: "GET",
+                data: {ids: <?php echo json_encode($_SESSION['ids']); ?>},
+                success: function(res) {
+                    // console.log(res);
+                    appBox.append(res);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 <?php $_SESSION['msg'] = ''; ?>

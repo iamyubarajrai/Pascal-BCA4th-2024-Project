@@ -23,7 +23,8 @@ $res = mysqli_query($conn, $sql);
             $phone = isset($row['phone']) ? $row['phone'] : '';
             $email = isset($row['email']) ? $row['email'] : '';
             ?>
-        <form action="./update.php" method="POST" name="usermgmt">
+        <form action="./update.php?id=<?php echo $id; ?>" method="POST" name="usermgmt">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="field-group">
                 <label for="fname">Full Name</label>
                 <input type="text" name="fname" id="fname" value="<?php echo $fullname; ?>">
