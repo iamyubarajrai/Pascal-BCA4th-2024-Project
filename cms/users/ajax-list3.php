@@ -1,7 +1,11 @@
 <?php session_start();
 include "../connection.php";
+
 $sql = "SELECT id, fullname, email FROM users limit 1";
-$res = mysqli_query($conn, $sql); ?>
+$res = mysqli_query($conn, $sql);
+
+$_SESSION['data_end'] = false;
+$last_id = 0; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,12 +28,10 @@ $res = mysqli_query($conn, $sql); ?>
                 </tr>
             </thead>
             <tbody>
-                <?php $i = 0;
-                while($row = mysqli_fetch_assoc($res)): 
-                    $i++;
-                    ?>
+                <?php while($row = mysqli_fetch_assoc($res)):
+                    $last_id = $row['id']; ?>
                 <tr>
-                    <td><?php echo $i; ?></td>
+                    <td>#</td>
                     <td><?php echo $row['fullname']; ?></td>
                     <td><?php echo $row['email'];?></td>
                     <td>
@@ -40,7 +42,37 @@ $res = mysqli_query($conn, $sql); ?>
                 <?php endwhile; ?>
             </tbody>
         </table>
+        <div class="data-finish"></div>
+        <a href="#" title="Load More" class="js-load">Load More</a>
     </div>
+
+    <script type="text/javascript">
+        let jsLoad = jQuery(".js-load"),
+            appBox = jQuery(".data-box tbody"),
+            appBoxInfo = jQuery(".data-finish");
+
+        let lastId = <?php echo $last_id; ?>;
+        jsLoad.on("click", (e) => {
+            e.preventDefault(); //preventing page reload/refresh
+            $.ajax({
+                url: "./ajax-method3.php",
+                method: "GET",
+                dataType: "TEXT", //TEXT, JSON
+                data: {lastId},
+                success: function(res) {
+                    lastId = JSON.parse(res).last_id;
+                    if(JSON.parse(res).data != 'finish') {
+                        appBox.append(JSON.parse(res).data);
+                    } else {
+                        appBoxInfo.html("<em>No more data available.</em>");
+                    }
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 <?php $_SESSION['msg'] = ''; ?>

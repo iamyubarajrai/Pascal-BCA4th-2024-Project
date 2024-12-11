@@ -1,7 +1,10 @@
 <?php session_start();
 include "../connection.php";
 $sql = "SELECT id, fullname, email FROM users limit 1";
-$res = mysqli_query($conn, $sql); ?>
+$res = mysqli_query($conn, $sql);
+$ids = [];
+$_SESSION['data_end'] = false;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +29,7 @@ $res = mysqli_query($conn, $sql); ?>
             <tbody>
                 <?php $i = 0;
                 while($row = mysqli_fetch_assoc($res)): 
+                    array_push($ids, $row['id']);
                     $i++;
                     ?>
                 <tr>
@@ -40,7 +44,40 @@ $res = mysqli_query($conn, $sql); ?>
                 <?php endwhile; ?>
             </tbody>
         </table>
+        <div class="data-finish"></div>
+        <a href="#" title="Load More" class="js-load">Load More</a>
     </div>
+
+    <script type="text/javascript">
+        let jsLoad = jQuery(".js-load"),
+            appBox = jQuery(".data-box tbody"),
+            appBoxInfo = jQuery(".data-finish");
+
+        let ids = <?php echo json_encode($ids); ?>;
+        jsLoad.on("click", (e) => {
+            e.preventDefault(); //preventing page reload/refresh
+            $.ajax({
+                url: "./ajax-method2.php",
+                method: "GET",
+                dataType: "TEXT", //TEXT, JSON
+                data: {ids},
+                success: function(res) {
+                    JSON.parse(res).id.forEach(item => {
+                        ids.push(item);
+                    });
+                    console.log(ids);
+                    if(JSON.parse(res).data != 'finish') {
+                        appBox.append(JSON.parse(res).data);
+                    } else {
+                        appBoxInfo.html("<em>No more data available.</em>");
+                    }
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 <?php $_SESSION['msg'] = ''; ?>
