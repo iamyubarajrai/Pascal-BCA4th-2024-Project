@@ -1,4 +1,3 @@
-
 <svg xmlns="http://w3.org/2000/svg" style="display: none; position: absolute;">
         <defs>
             <symbol id="icon-dashboard" viewBox="0 0 24 24">

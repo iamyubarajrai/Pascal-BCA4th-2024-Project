@@ -1,4 +1,4 @@
-<?php
+<?php 
 $project_root = "http://localhost:80/pascalpro"; 
 ?>
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ $project_root = "http://localhost:80/pascalpro";
             </span>
             <ul class="profile-list">
                 <li><a href="#" title="Account">Account</a></li>
-                <li><a href="#" title="Sign out">Sign out</a></li>
+                <li><a href="./logout.php" title="Sign out">Sign out</a></li>
             </ul>
         </div>
     </header>
@@ -39,9 +39,21 @@ $project_root = "http://localhost:80/pascalpro";
                     </span>
                 </a>
                 <ul>
-                    <li><a href="<?php echo $project_root; ?>/cms/products/list.php" title="All Products">All Products</a></li>
+                    <li><a href="<?php echo $project_root; ?>/cms/products/index.php" title="All Products">All Products</a></li>
                     <li><a href="<?php echo $project_root; ?>/cms/products/add.php" title="Add Product">Add Product</a></li>
                     <li><a href="<?php echo $project_root; ?>/cms/products/categories.php" title="Categories">Categories</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" title="Products" class="js-drop">
+                    <span>
+                        <svg class="icon"><use xlink:href="#icon-user"></use></svg>
+                        <span>Users</span>
+                    </span>
+                </a>
+                <ul>
+                    <li><a href="<?php echo $project_root; ?>/cms/users/index.php" title="All Products">All Users</a></li>
+                    <li><a href="<?php echo $project_root; ?>/cms/users/add.php" title="Add Product">Add User</a></li>
                 </ul>
             </li>
             <li>

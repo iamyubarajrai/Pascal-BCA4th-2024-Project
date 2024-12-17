@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add | User Management</title>
-    <link href="../assets/style.css" rel="stylesheet">
-</head>
-<body>
+<?php include "../check.php"; ?>
+<?php include "../header.php"; ?>
     <div class="form-box container container--small">
         <h1 class="form-box__title">Create User</h1>
         <form action="./create.php" method="POST" name="usermgmt">
@@ -37,5 +30,4 @@
             <button type="submit" name="submit">Register</button>
         </form>
     </div>
-</body>
-</html>
+<?php include "../footer.php"; ?>

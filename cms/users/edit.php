@@ -1,20 +1,13 @@
-<?php session_start();
+<?php
+include "../check.php";
 include "../connection.php";
-if(!isset($_GET['id'])) header("location: ./list.php");
+if(!isset($_GET['id'])) header("location: ./index.php");
 
 $id = $_GET['id'];
 $sql = "SELECT fullname, email, phone, address FROM users WHERE id=$id";
 $res = mysqli_query($conn, $sql);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit | User Management</title>
-    <link href="../assets/style.css" rel="stylesheet">
-</head>
-<body>
+<?php include "../header.php"; ?>
     <div class="form-box container container--small">
         <h1 class="form-box__title">Update User</h1>
         <?php while($row = mysqli_fetch_assoc($res)): 
@@ -45,5 +38,4 @@ $res = mysqli_query($conn, $sql);
         </form>
         <?php endwhile;  ?>
     </div>
-</body>
-</html>
+<?php include "../footer.php"; ?>

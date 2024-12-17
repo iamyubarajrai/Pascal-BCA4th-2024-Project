@@ -1,16 +1,9 @@
-<?php session_start();
+<?php
+include "../check.php";
 include "../connection.php";
 $sql = "SELECT id, fullname, email FROM users limit 1";
 $res = mysqli_query($conn, $sql); ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Users | User Management</title>
-    <script src="../assets/jquery.min.js"></script>
-</head>
-<body>
+<?php include "../header.php"; ?>
     <div class="data-box">
         <h1>All Users</h1>
         <?php echo (isset($_SESSION['msg']) && $_SESSION['msg'] != '') ? $_SESSION['msg'] : ''; ?>
@@ -41,6 +34,5 @@ $res = mysqli_query($conn, $sql); ?>
             </tbody>
         </table>
     </div>
-</body>
-</html>
+<?php include "../footer.php"; ?>
 <?php $_SESSION['msg'] = ''; ?>

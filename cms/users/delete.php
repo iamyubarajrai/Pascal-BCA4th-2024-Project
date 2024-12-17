@@ -9,4 +9,4 @@ if(isset($_GET['id'])) {
     if($res) $_SESSION['msg'] = "User deleted successfully.";
     else $_SESSION['msg'] = "Oops! User deletion failed.";
 }
-header("location: ./list.php");
+header("location: ./index.php");

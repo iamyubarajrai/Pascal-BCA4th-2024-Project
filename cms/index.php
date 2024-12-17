@@ -1,4 +1,6 @@
-<?php include "header.php"; ?>
+<?php 
+include "./check.php";
+include "header.php"; ?>
     <main id="main">
         <div class="card">
             <h3 class="card-title">Products</h3>

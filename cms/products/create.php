@@ -1,4 +1,6 @@
-<?php require("../connection.php");
+<?php session_start();
+$user_id = $_SESSION['user_id'];
+require("../connection.php");
 if(isset($_POST['submit'])) {
 
     // echo "<pre>";
@@ -30,4 +32,6 @@ if(isset($_POST['submit'])) {
     } else {
         echo "File size error";
     }
+
+    $sql = "INSERT INTO products (title, detail, created_by) VALUES('$title', '$detail', $user_id)";
 }
