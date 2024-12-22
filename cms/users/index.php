@@ -1,9 +1,9 @@
 <?php
 include "../check.php";
 include "../connection.php";
-$sql = "SELECT id, fullname, email FROM users limit 1";
-$res = mysqli_query($conn, $sql); ?>
-<?php include "../header.php"; ?>
+$sql = "SELECT id, fullname, email FROM users";
+$res = mysqli_query($conn, $sql); 
+include "../header.php"; ?>
     <div class="data-box">
         <h1>All Users</h1>
         <?php echo (isset($_SESSION['msg']) && $_SESSION['msg'] != '') ? $_SESSION['msg'] : ''; ?>

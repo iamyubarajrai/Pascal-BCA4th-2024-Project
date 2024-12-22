@@ -19,7 +19,7 @@ $project_root = "http://localhost:80/pascalpro";
             </span>
             <ul class="profile-list">
                 <li><a href="#" title="Account">Account</a></li>
-                <li><a href="./logout.php" title="Sign out">Sign out</a></li>
+                <li><a href="//<?php echo $_SERVER['HTTP_HOST']; ?>/pascalpro/cms/logout.php" title="Sign out">Sign out</a></li>
             </ul>
         </div>
     </header>

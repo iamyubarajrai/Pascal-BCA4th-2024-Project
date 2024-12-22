@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 include "../check.php";
 include "../connection.php";
 if(!isset($_GET['id'])) header("location: ./index.php");
@@ -10,6 +10,7 @@ $res = mysqli_query($conn, $sql);
 <?php include "../header.php"; ?>
     <div class="form-box container container--small">
         <h1 class="form-box__title">Update User</h1>
+        <?php echo (isset($_SESSION['msg']) && $_SESSION['msg'] != '') ? $_SESSION['msg'] : ''; ?>
         <?php while($row = mysqli_fetch_assoc($res)): 
             $fullname = isset($row['fullname']) ? $row['fullname'] : '';
             $address = isset($row['address']) ? $row['address'] : '';

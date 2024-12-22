@@ -14,8 +14,12 @@ if(isset($_POST['submit'])) {
         include "../connection.php";
         $res = mysqli_query($conn, $query);
 
-        if($res) $_SESSION['msg'] = "User Registered successfully.";
-        else $_SESSION['msg'] = "Oops! User Registration failed.";
+        if($res):
+            $_SESSION['msg'] = "User Registered successfully.";
+            header("location: ./index.php");
+        else: 
+            $_SESSION['msg'] = "Oops! User Registration failed.";
+        endif;
     } else {
         $_SESSION['msg'] = "Password not matched.";
     }   

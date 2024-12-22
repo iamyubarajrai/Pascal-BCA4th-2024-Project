@@ -1,4 +1,7 @@
-<?php include "../header.php"; ?>
+<?php include "../header.php"; 
+include "../connection.php"; 
+$cat_sql = "SELECT * FROM categories"; 
+$cat_res = mysqli_query($conn, $cat_sql); ?>
     <main id="main">
         <div class="form-box">
             <h1 class="page-title">Add Product</h1>
@@ -41,9 +44,9 @@
                         <label for="cat">Prodcut Category</label>
                         <select name="cat" id="cat">
                             <option>Choose Category</option>
-                            <option value="Clothes">Clothes</option>
-                            <option value="Electronics">Electronics</option>
-                            <option value="Stationary">Stationary</option>
+                            <?php while($cat = mysqli_fetch_assoc($cat_res)): ?>
+                                <option value="<?php echo $cat['id']; ?>"><?php echo $cat['title']; ?></option>
+                            <?php endwhile; ?>
                         </select>
                     </div>
                     <div class="field-group">

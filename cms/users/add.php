@@ -1,7 +1,9 @@
-<?php include "../check.php"; ?>
-<?php include "../header.php"; ?>
+<?php session_start();
+ include "../check.php"; 
+include "../header.php"; ?>
     <div class="form-box container container--small">
         <h1 class="form-box__title">Create User</h1>
+        <?php echo (isset($_SESSION['msg']) && $_SESSION['msg'] != '') ? $_SESSION['msg'] : ''; ?>
         <form action="./create.php" method="POST" name="usermgmt">
             <div class="field-group">
                 <label for="fname">Full Name</label>

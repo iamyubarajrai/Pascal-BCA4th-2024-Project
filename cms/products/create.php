@@ -33,5 +33,13 @@ if(isset($_POST['submit'])) {
         echo "File size error";
     }
 
-    $sql = "INSERT INTO products (title, detail, created_by) VALUES('$title', '$detail', $user_id)";
+    $sql = "INSERT INTO products (title, slug, description, image, price, category_id, created_by) VALUES('$title', '$slug', '$detail', '$file_name', '$rprice', '$cat', $user_id)";
+    include "../connection.php";
+    $res = mysqli_query($conn, $sql);
+    if($res):
+        $_SESSION['msg'] = "Product added successfully.";
+        header("location: ./index.php");
+    else: 
+        $_SESSION['msg'] = "Oops! Product creation failed.";
+    endif;
 }
